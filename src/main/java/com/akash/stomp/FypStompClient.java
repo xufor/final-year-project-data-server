@@ -11,7 +11,7 @@ import com.akash.service.ReadingService;
 
 public class FypStompClient {
 
-	private String stompEndpoint = "ws://localhost:8080/stomp-endpoint";
+	private String stompEndpoint = "ws://20.193.232.92:8080/stomp-endpoint";
 	
 	public FypStompClient(ReadingService readingService) {
 		WebSocketStompClient stompClient = new WebSocketStompClient(new StandardWebSocketClient());
