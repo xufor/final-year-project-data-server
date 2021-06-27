@@ -7,14 +7,16 @@ import org.springframework.messaging.simp.stomp.StompSessionHandler;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
 
+import com.akash.service.ReadingService;
+
 public class FypStompClient {
 
 	private String stompEndpoint = "ws://localhost:8080/stomp-endpoint";
 	
-	public FypStompClient() {
+	public FypStompClient(ReadingService readingService) {
 		WebSocketStompClient stompClient = new WebSocketStompClient(new StandardWebSocketClient());
 		stompClient.setMessageConverter(new MappingJackson2MessageConverter());
-		StompSessionHandler sessionHandler = new CustomStompSessionHandler();
+		StompSessionHandler sessionHandler = new CustomStompSessionHandler(readingService);
 		try {
 			stompClient.connect(stompEndpoint, sessionHandler).get();
 		} catch (InterruptedException | ExecutionException e) {
