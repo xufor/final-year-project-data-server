@@ -41,12 +41,12 @@ public class CustomStompSessionHandler implements StompSessionHandler {
 	@Override
 	public void handleException(StompSession session, StompCommand command, StompHeaders headers, byte[] payload,
 			Throwable exception) {
-		exception.printStackTrace();
+		log.info(exception.getMessage());
 	}
 
 	@Override
 	public void handleTransportError(StompSession session, Throwable exception) {
-		exception.printStackTrace();
+		log.info(exception.getMessage());
 	}
 	
 }

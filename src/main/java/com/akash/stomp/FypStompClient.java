@@ -9,6 +9,9 @@ import org.springframework.web.socket.messaging.WebSocketStompClient;
 
 import com.akash.service.ReadingService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class FypStompClient {
 
 	private String stompEndpoint = "ws://20.193.232.92:8080/stomp-endpoint";
@@ -20,7 +23,7 @@ public class FypStompClient {
 		try {
 			stompClient.connect(stompEndpoint, sessionHandler).get();
 		} catch (InterruptedException | ExecutionException e) {
-			e.printStackTrace();
+			log.info(e.getMessage());
 		}
 		
 	}
