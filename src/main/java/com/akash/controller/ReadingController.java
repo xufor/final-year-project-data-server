@@ -3,6 +3,7 @@ package com.akash.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import com.akash.entity.Reading;
 import com.akash.service.ReadingService;
 
 @RestController
+@CrossOrigin(originPatterns = "http://*")
 public class ReadingController {
 	
 	@Autowired 
