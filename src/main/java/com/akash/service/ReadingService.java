@@ -24,14 +24,17 @@ public class ReadingService {
 	}
 	
 	public List<Reading> getFewReadings(@PathVariable long targetTimestamp) {
+	    log.info("Serving at least 15 rows greater than timestamp -> " + targetTimestamp);
 		return readingDao.find15GreaterReadings(targetTimestamp);
 	}
 	
 	public List<Reading> queryReadingsBetween(long mintargetTimestamp, long maxtargetTimestamp) {
+	    log.info("Serving all rows between timestamp -> " + mintargetTimestamp + " and " + maxtargetTimestamp);
 		return readingDao.findReadingsBetween(mintargetTimestamp, maxtargetTimestamp);
 	}
 	
 	public List<Object[]> queryReadingMetrices(long mintargetTimestamp, long maxtargetTimestamp) {
+	    log.info("Serving basic metrics between timestamp -> " + mintargetTimestamp + " and " + maxtargetTimestamp);
 		return readingDao.findReadingMetrices(mintargetTimestamp, maxtargetTimestamp);
 	}
 }
